@@ -2,6 +2,8 @@ package com.example.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,10 @@ public class AlunoService {
 	
 	public List<Aluno> findAll(){
 		return repository.findAll();
+	}
+	
+	public Aluno save(Aluno entity) {
+		return repository.save(entity);
 	}
 
 }
