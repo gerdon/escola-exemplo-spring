@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Escola</title>
 	</head>
 	<body>
 		<a href="/alunos/new">Novo Aluno</a>
-	
+		<div layout:fragment="content">
+		<h1>Alunos</h1>
+		<hr />
+		<a th:href="@{/alunos/new}" class="btn btn-success">Novo Aluno</a>
+		<br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th> 
+					<th>Matricula</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="aluno : ${listAluno}">
+					<td th:text="${aluno.nome}"></td> 
+					<td th:text="${aluno.matricula}"></td>   
+					<td> 
+				 		<a th:href="@{/alunos/{id}/edit(id = ${aluno.id})}" class="btn btn-info">Editar</a>
+				 		<a th:href="@{/alunos/{id}/delete(id = ${aluno.id})}" class="btn btn-info">Deletar</a>				 		
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	  </div>
 	</body>
 </html>

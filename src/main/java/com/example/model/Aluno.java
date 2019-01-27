@@ -28,6 +28,10 @@ public class Aluno implements Serializable{
 	@Column(name="matricula")
 	private String matricula;
 	
+	public Aluno() {
+		
+	}
+	
 	public Aluno(String nome, String matricula) {
 		this.nome = nome;
 		this.matricula = matricula;

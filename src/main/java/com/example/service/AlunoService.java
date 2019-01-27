@@ -1,8 +1,7 @@
 package com.example.service;
 
 import java.util.List;
-
-import javax.transaction.Transactional;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,8 +19,16 @@ public class AlunoService {
 		return repository.findAll();
 	}
 	
+	public Optional<Aluno> findOne(Integer id) {
+		return repository.findById(id);
+	}
+	
 	public Aluno save(Aluno entity) {
 		return repository.save(entity);
+	}
+	
+	public void delete(Aluno entity) {
+		repository.delete(entity);
 	}
 
 }
